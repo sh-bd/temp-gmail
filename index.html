@@ -247,45 +247,32 @@
   </div></center>
 
 <script>
-    // Function to fetch and update posts
-    async function updatePosts() {
-        try {
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const rssFeedUrl = 'https://hasibs-blog.blogspot.com/feeds/posts/default';
+    function handleFeed(data) {
+        const entries = data.feed.entry;
 
-            const response = await fetch(proxyUrl + rssFeedUrl);
-            const xmlDoc = await response.text();
-            const parser = new DOMParser();
-            const feed = parser.parseFromString(xmlDoc, 'application/xml');
-            const entries = feed.querySelectorAll('entry');
-            
-            const postsContainer = document.getElementById('posts-container');
-            postsContainer.innerHTML = ''; // Clear existing posts
-            
-            entries.forEach((entry) => {
-                const titleElement = entry.querySelector('title');
-                const title = titleElement ? titleElement.textContent : 'No Title';
-                
-                const contentElement = entry.querySelector('content[type="html"]');
-                const content = contentElement ? contentElement.textContent : 'No Content';
-                
-                const publishedElement = entry.querySelector('published');
-                const publishedDate = publishedElement ? new Date(publishedElement.textContent) : null;
+        const postsContainer = document.getElementById('posts-container');
+        postsContainer.innerHTML = ''; // Clear existing posts
 
-                const timeAgo = publishedDate ? calculateTimeAgo(publishedDate) : 'Unknown Time Ago';
-                
-                const postElement = document.createElement('div');
-                postElement.className = 'post';
-                postElement.innerHTML = `<h3>${title}</h3><p>${timeAgo} ago</p>`;
-                postElement.onclick = () => openPopup({ title, content, timeAgo });
-                postsContainer.appendChild(postElement);
-            });
-        } catch (error) {
-            console.error('Error fetching or parsing RSS feed:', error);
-        }
+        entries.forEach((entry) => {
+            const title = entry.title.$t;
+            const content = entry.content.$t;
+            const publishedDate = new Date(entry.published.$t);
+            const timeAgo = calculateTimeAgo(publishedDate);
+
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `<h3>${title}</h3><p>${timeAgo} ago</p>`;
+            postElement.onclick = () => openPopup({ title, content, timeAgo });
+            postsContainer.appendChild(postElement);
+        });
     }
 
-    // Function to calculate time ago
+    async function updatePosts() {
+        const script = document.createElement('script');
+        script.src = 'https://www.blogger.com/feeds/900771895518095394/posts/default?alt=json-in-script&callback=handleFeed';
+        document.head.appendChild(script);
+    }
+
     function calculateTimeAgo(publishedDate) {
         const now = new Date();
         const timeDiff = now - publishedDate;
@@ -293,7 +280,7 @@
         const minutes = Math.floor(seconds / 60);
         const hours = Math.floor(minutes / 60);
         const days = Math.floor(hours / 24);
-        
+
         if (days > 0) {
             return `${days} day${days > 1 ? 's' : ''}`;
         } else if (hours > 0) {
