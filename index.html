@@ -250,7 +250,10 @@
     // Function to fetch and update posts
     async function updatePosts() {
         try {
-            const response = await fetch('https://hasibs-blog.blogspot.com/feeds/posts/default');
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const rssFeedUrl = 'https://hasibs-blog.blogspot.com/feeds/posts/default';
+
+            const response = await fetch(proxyUrl + rssFeedUrl);
             const xmlDoc = await response.text();
             const parser = new DOMParser();
             const feed = parser.parseFromString(xmlDoc, 'application/xml');
