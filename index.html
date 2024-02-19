@@ -248,7 +248,7 @@
 
 <script>
     function handleFeed(data) {
-        const entries = data.feed.entry;
+        const entries = data.feed.entry.slice(0, 5); // Only the latest 5 entries
 
         const postsContainer = document.getElementById('posts-container');
         postsContainer.innerHTML = ''; // Clear existing posts
