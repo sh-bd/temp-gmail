@@ -186,9 +186,7 @@
         }
       }
     </style>
-<link rel="me" href="https://www.blogger.com/profile/09691190005965017604" />
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
 </head>
 <body>
 
@@ -252,7 +250,7 @@
     // Function to fetch and update posts
     async function updatePosts() {
         try {
-            const response = await fetch('https://mshasib.blogspot.com/feeds/posts/default');
+            const response = await fetch('https://hasibs-blog.blogspot.com/feeds/posts/default');
             const xmlDoc = await response.text();
             const parser = new DOMParser();
             const feed = parser.parseFromString(xmlDoc, 'application/xml');
