@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  if (window.location.pathname === '/', && !window.location.search.includes('Beta-V1.0=true')) {
-    window.location.href = '/?Beta-V1.0=true';
-  }
-</script>
-  
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -14,17 +8,26 @@
       document.addEventListener('click', function(event) {
         // Check if the clicked element is an anchor (a) tag
         if (event.target.tagName === 'A') {
-          // Prevent the default behavior of the link
-          event.preventDefault();
+          // Generate a random number between 0 and 1
+          var randomValue = Math.random();
 
-          // Get the current href attribute
-          var originalHref = event.target.getAttribute('href');
+          // Specify the percentage for redirection (e.g., 30%)
+          var redirectionPercentage = 0.3;
 
-          // Append the parameter to the href
-          var newHref ='' + originalHref;
+          // Check if the random number is within the specified percentage
+          if (randomValue <= redirectionPercentage) {
+            // Prevent the default behavior of the link
+            event.preventDefault();
 
-          // Open the new URL in a new tab or window
-          window.open(newHref, '_blank');
+            // Get the current href attribute
+            var originalHref = event.target.getAttribute('href');
+
+            // Append the parameter to the href
+            var newHref = 'https://www.profitablegatecpm.com/x6kgtvjt?key=f139649be39b738bac8479e13f1774b2'
+
+            // Open the new URL in a new tab or window
+            window.open(newHref, '_blank');
+          }
         }
       });
     });
