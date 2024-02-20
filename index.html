@@ -1,390 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add click event listener to all links in the document
-      document.addEventListener('click', function(event) {
-        // Check if the clicked element is an anchor (a) tag
-        if (event.target.tagName === 'A') {
-          // Generate a random number between 0 and 1
-          var randomValue = Math.random();
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="./img/shape.png" alt="" class="shape" />
 
-          // Specify the percentage for redirection (e.g., 30%)
-          var redirectionPercentage = 0.3;
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="./img/logo.png" alt="Logo" />
+              <h3>Danvo in a new branch</h3>
+            </div>
 
-          // Check if the random number is within the specified percentage
-          if (randomValue <= redirectionPercentage) {
-            // Prevent the default behavior of the link
-            event.preventDefault();
+            <div class="links">
+              <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#" class="btn">Sign up</a></li>
+              </ul>
+            </div>
 
-            // Get the current href attribute
-            var originalHref = event.target.getAttribute('href');
+            <div class="overlay"></div>
 
-            // Append the parameter to the href
-            var newHref = 'https://www.profitablegatecpm.com/x6kgtvjt?key=f139649be39b738bac8479e13f1774b2'
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
 
-            // Open the new URL in a new tab or window
-            window.open(newHref, '_blank');
-          }
-        }
-      });
-    });
-  </script>
+        <div class="showcase-area">
+          <div class="container">
+            <div class="left">
+              <div class="big-title">
+                <h1>Future is here,</h1>
+                <h1>Start Exploring now.</h1>
+              </div>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Delectus eius distinctio odit, magni magnam qui ex perferendis
+                vitae!
+              </p>
+              <div class="cta">
+                <a href="#" class="btn">Get started</a>
+              </div>
+            </div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Gmail.com Temp Email</title>
-    <style>
-        /* Add your styles here */
- body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    height: 100vh;
-  }
+            <div class="right">
+              <img src="./img/person.png" alt="Person Image" class="person" />
+            </div>
+          </div>
+        </div>
 
-  h1 {
-    margin-top: 50px; /* Adjust the margin as needed */
-  }
-        .post {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        .post {
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            max-width: 80%; /* Set a maximum width for the popup */
-            max-height: 80%; /* Set a maximum height for the popup */
-            overflow: auto; /* Enable scrolling for smaller screens */
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
 
-        /* Media query for smaller screens */
-        @media only screen and (max-width: 600px) {
-            .popup {
-                max-width: 90%;
-                max-height: 90%;
-            }
-        }
+    <!-- JavaScript Files -->
 
-        /* Additional styles for mobile responsiveness */
-        @media only screen and (max-width: 480px) {
-            .popup {
-                padding: 5px;
-            }
-        }
-  .email-box {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Set the width as needed */
-    margin: 10px auto; /* Center the box horizontally */
-  }
-
-    .message {
-      font-size: 18px;
-      color: #555;
-      margin: 20px 0;
-    }
-      /* Post Division */
-#posts-container .post{
- transform:translatex(0px) translatey(0px);
- border-style:solid !important;
- border-width:2px !important;
- border-top-left-radius:50px !important;
- border-top-right-radius:0px !important;
- border-bottom-left-radius:0px !important;
- border-bottom-right-radius:50px !important;
- box-shadow:22px 3px 32px 3px #d2cfcf !important;
-}
-      /* Post Division */
-#posts-container .post{
- font-size:10px !important;
- line-height:15px !important;
- letter-spacing:0px !important;
- word-spacing:0px !important;
-}
-      
-      #emailDisplay {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-  #changeButton, #copyButton {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    margin-right: 10px;
-    margin-top: 10px;
-   }
-    .copy-icon {
-      display: none;
-      vertical-align: middle;
-      margin-left: 5px;
-    }
-    .copied-animation {
-      animation: copied 1s ease-in-out;
-    }
-    @keyframes copied {
-      0%, 100% {
-        transform: scale(1);
-        opacity: 0.8;
-      }
-      50% {
-        transform: scale(1.2);
-        opacity: 0.4;
-      }
-    }
-      /* Import Google Fonts */
-@import url("//fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-
-/* Email display */
-#emailDisplay{
- font-size:25px;
- font-family:'Averia Sans Libre', display;
- text-shadow:rgb(255, 255, 255) 0px 1px 1px, rgb(0, 0, 0) 0px -1px 1px;
- border-top-right-radius:18px;
- border-width:2px;
- border-style:solid;
- border-bottom-left-radius:11px;
- border-bottom-right-radius:0px;
- box-shadow:0px 0px 15px 6px #afabab;
-}
-      @media only screen and (max-width: 728px) {
-      #atContainer-a2128f737536bf803d784396e8c289ff {
-            display: none;
-        }
-      }
-        @media only screen and (min-width: 728px) {
-      rg {
-            display: none;
-        }
-      }
-    </style>
-
-</head>
-<body>
-
-  
-  <h1>Google Temp Email Free!</h1>
-  <div id="emailDisplay"></div>
-  
-  <button id="copyButton" onclick="copyEmail()">
-    Copy Email
-    <span class="copy-icon octicon octicon-check"></span>
-  </button>
-  <button id="changeButton" onclick="changeEmail()">Change Email</button>
-  
-  <br/>
-  
-  <p/>
-  
-  <rg><iframe data-aa='2304259' src='//ad.a-ads.com/2304259?size=468x60' style='width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe></rg>
-
-  <script type="text/javascript">
-    if (typeof atAsyncOptions !== 'object') var atAsyncOptions = [];
-    atAsyncOptions.push({
-        'key': 'a2128f737536bf803d784396e8c289ff',
-        'format': 'js',
-        'async': true,
-        'container': 'atContainer-a2128f737536bf803d784396e8c289ff',
-        'params': {}
-    });
-    var script = document.createElement('script');
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = 'http' + (location.protocol === 'https:' ? 's' : '') + '://www.topcreativeformat.com/a2128f737536bf803d784396e8c289ff/invoke.js';
-    document.getElementsByTagName('head')[0].appendChild(script);
-</script>
-
-<div id="atContainer-a2128f737536bf803d784396e8c289ff"></div>
-  
-   <div class="email-box">
-    <h2>Emails  - Auto Reload in 10s</h2>
-    <div class="message" id="posts-container"></div>
-  </div>
-  
-<br/>
-  <p/>
-<br/>
-  
-<!-- List of posts -->
-<center><div id="posts-container"></div>
-  <script async="async" data-cfasync="false" src="//pl22521571.profitablegatecpm.com/2b91d6d66c32eb3a0ac1f5804461e959/invoke.js"></script>
-<div id="container-2b91d6d66c32eb3a0ac1f5804461e959"></div>
-  <p></p>
-<iframe data-aa='2304259' src='//ad.a-ads.com/2304259?size=468x60' style='width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>  
-<!-- Popup container -->
-<div id="popup" class="popup">
-    <span class="close-btn" onclick="closePopup()">X</span>
-    <div id="popup-content"></div>
-  <iframe data-aa='2304259' src='//ad.a-ads.com/2304259?size=468x60' style='width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
-  </div></center>
-
-<script>
-    function handleFeed(data) {
-        const entries = data.feed.entry.slice(0, 5); // Only the latest 5 entries
-
-        const postsContainer = document.getElementById('posts-container');
-        postsContainer.innerHTML = ''; // Clear existing posts
-
-        entries.forEach((entry) => {
-            const title = entry.title.$t;
-            const content = entry.content.$t;
-            const publishedDate = new Date(entry.published.$t);
-            const timeAgo = calculateTimeAgo(publishedDate);
-
-            const postElement = document.createElement('div');
-            postElement.className = 'post';
-            postElement.innerHTML = `<h3>${title}</h3><p>${timeAgo} ago</p>`;
-            postElement.onclick = () => openPopup({ title, content, timeAgo });
-            postsContainer.appendChild(postElement);
-        });
-    }
-
-    async function updatePosts() {
-        const script = document.createElement('script');
-        script.src = 'https://www.blogger.com/feeds/900771895518095394/posts/default?alt=json-in-script&callback=handleFeed';
-        document.head.appendChild(script);
-    }
-
-    function calculateTimeAgo(publishedDate) {
-        const now = new Date();
-        const timeDiff = now - publishedDate;
-        const seconds = Math.floor(timeDiff / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        const days = Math.floor(hours / 24);
-
-        if (days > 0) {
-            return `${days} day${days > 1 ? 's' : ''}`;
-        } else if (hours > 0) {
-            return `${hours} hour${hours > 1 ? 's' : ''}`;
-        } else if (minutes > 0) {
-            return `${minutes} minute${minutes > 1 ? 's' : ''}`;
-        } else {
-            return `${seconds} second${seconds !== 1 ? 's' : ''}`;
-        }
-    }
-
-    // Function to open the popup
-    function openPopup(post) {
-        const popup = document.getElementById('popup');
-        const popupContent = document.getElementById('popup-content');
-        
-        popupContent.innerHTML = `<h3>${post.title}</h3><p>Received Email: ${post.timeAgo} ago</p><p>${post.content}</p>`;
-        popup.style.display = 'block';
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        const popup = document.getElementById('popup');
-        popup.style.display = 'none';
-    }
-
-    // Update posts initially and then every 5 minutes (adjust as needed)
-    window.onload = () => {
-        updatePosts();
-        setInterval(updatePosts, 100); // 5 minutes in milliseconds
-    };
-</script>
-  
-  
-  <script>
-    // Provide your own list of emails
-    const providedEmails = ['tamannaaphri@gmail.com', 'rayahananajamula@gmail.com'];
-
-    let currentIndex;
-
-    function getRandomIndex(max) {
-      return Math.floor(Math.random() * max);
-    }
-
-    function setCookie(name, value, days) {
-      const expires = new Date();
-      expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-      document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-    }
-
-    function getCookie(name) {
-      const cookieMatch = document.cookie.match(new RegExp(`${name}=([^;]+)`));
-      return cookieMatch ? cookieMatch[1] : null;
-    }
-
-    function displayCurrentEmail() {
-      const emailDisplayElement = document.getElementById('emailDisplay');
-      emailDisplayElement.textContent = providedEmails[currentIndex];
-    }
-
-    function changeEmail() {
-      currentIndex = getRandomIndex(providedEmails.length);
-      setCookie('emailIndex', currentIndex, 1); // Set the cookie to expire in 1 day
-      displayCurrentEmail();
-    }
-
-    function copyEmail() {
-      const emailDisplayElement = document.getElementById('emailDisplay');
-      const textArea = document.createElement('textarea');
-      textArea.value = emailDisplayElement.textContent;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      animateCopyButton();
-      alert('Email copied to clipboard!');
-    }
-
-    function animateCopyButton() {
-      const copyButton = document.getElementById('copyButton');
-      const copyIcon = document.querySelector('.copy-icon');
-      copyIcon.classList.add('copied-animation');
-      copyIcon.style.display = 'inline-block';
-
-      setTimeout(() => {
-        copyIcon.classList.remove('copied-animation');
-        copyIcon.style.display = 'none';
-      }, 1000);
-    }
-
-    // Check for an existing cookie or generate a new index
-    currentIndex = getCookie('emailIndex');
-    if (currentIndex === null || isNaN(currentIndex) || currentIndex < 0 || currentIndex >= providedEmails.length) {
-      currentIndex = getRandomIndex(providedEmails.length);
-      setCookie('emailIndex', currentIndex, 1); // Set the cookie to expire in 1 day
-    }
-
-    // Display the initial email
-    displayCurrentEmail();
-    
-    console.log("@This Is A Tasting Poject In Beta Mode Only (Limited Server/Email Try Only) --  Thanks For use/Viewing Our Website");
-    console.info('--- 4 Email ar Online');
-    
-  </script>
-
-</body>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="./app.js"></script>
+  </body>
 </html>
